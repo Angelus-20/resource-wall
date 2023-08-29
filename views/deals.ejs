@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script src="/scripts/comments.js"></script>
   </head>
 
   <body class="bg-white font-semibold text-black font-sans">
@@ -17,16 +19,19 @@
     <div class="deals-container flex items-center justify-center mt-32">
       <div class="space-y-3 flex space-x-3 p-4">
         <% dealsData.forEach((deal) => { %>
-        <ul
-          class="flex justify-center flex-col items-center space-x-2 border-2 p-6 shadow-lg rounded-lg"
-        >
-          <li class=""><%= deal.title %></li>
-          <li><%= deal.description %></li>
-          <li><%= deal.url %></li>
-          <li><%= deal.name %></li>
-          <li><%= deal.total_likes %></li>
-          <li><%= parseFloat(deal.deal_rating).toFixed(1) %></li>
-        </ul>
+        <article data-id="<%= deal.id %>">
+          <ul
+            class="flex justify-center flex-col items-center space-x-2 border-2 p-6 shadow-lg rounded-lg"
+          >
+            <li class=""><%= deal.title %></li>
+            <li><%= deal.description %></li>
+            <li><%= deal.url %></li>
+            <li><%= deal.name %></li>
+            <li><%= deal.total_likes %></li>
+            <li><%= parseFloat(deal.deal_rating).toFixed(1) %></li>
+          </ul>
+          <ul class="comments-list"></ul>
+        </article>
 
         <% }); %>
       </div>
