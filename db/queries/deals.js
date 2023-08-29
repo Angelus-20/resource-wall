@@ -6,17 +6,17 @@ const getDeals = () => {
   });
 };
 
-const getDetailedDeals = () => {
-  const query = `
-   "Select deals.id, deals.title, deals.description, deals.url, COUNT(likes.) as likes from deals left join likes on deals.id = likes.id"
-  `;
+// const getDetailedDeals = () => {
+//   const query = `
+//    "Select deals.id, deals.title, deals.description, deals.url, COUNT(likes.) as likes from deals left join likes on deals.id = likes.id"
+//   `;
 
-  return db.query(query).then((data) => {
-    return data.rows;
-  });
-};
+//   return db.query(query).then((data) => {
+//     return data.rows;
+//   });
+// };
 
-module.exports = { getDeals, getDetailedDeals };
+// module.exports = { getDeals, getDetailedDeals };
 
 // SELECT users.name, deals.title, deals.description, deals.date_added, deals.URL, COUNT(likes.) as likes, AVG(ratings.)
 // FROM deals
