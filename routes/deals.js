@@ -2,16 +2,16 @@ const express = require("express");
 const router = express.Router();
 const dealsQueries = require("../db/queries/deals");
 
-router.get("/", (req, res) => {
-  dealsQueries
-    .getDeals()
-    .then((dealsData) => {
-      res.render("deals", { dealsData });
-    })
-    .catch((err) => {
-      res.status(500).json({ error: err.message });
-    });
-});
+// router.get("/", (req, res) => {
+//   dealsQueries
+//     .getDeals()
+//     .then((dealsData) => {
+//       res.render("deals", { dealsData });
+//     })
+//     .catch((err) => {
+//       res.status(500).json({ error: err.message });
+//     });
+// });
 router.get("/", (req, res) => {
   dealsQueries
     .getAllDeals()
