@@ -8,12 +8,7 @@ const getDeals = () => {
 
 const getDetailedDeals = () => {
   const query = `
-    SELECT users.name, deals.title, deals.description, deals.date_added, deals.URL, COUNT(likes.id) as likes_count, AVG(ratings.rating_value) as average_rating
-    FROM deals
-    JOIN users ON deals.user_id = users.id
-    LEFT JOIN likes ON deals.id = likes.deal_id
-    LEFT JOIN ratings ON deals.id = ratings.deal_id
-    GROUP BY users.name, deals.title, deals.description, deals.date_added, deals.URL;
+   "Select deals.id, deals.title, deals.description, deals.url, COUNT(likes.) as likes from deals left join likes on deals.id = likes.id"
   `;
 
   return db.query(query).then((data) => {
@@ -22,3 +17,11 @@ const getDetailedDeals = () => {
 };
 
 module.exports = { getDeals, getDetailedDeals };
+
+// SELECT users.name, deals.title, deals.description, deals.date_added, deals.URL, COUNT(likes.) as likes, AVG(ratings.)
+// FROM deals
+// JOIN users ON deal_id = deals.id
+// JOIN likes ON deal_id = deals.id
+// JOIN comments ON deal_id = deals.id
+// JOIN users ON users.id = user_id
+// GROUP BY users.id;

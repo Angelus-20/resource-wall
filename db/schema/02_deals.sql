@@ -5,7 +5,9 @@ CREATE TABLE deals (
     description TEXT NOT NULL,
     date_added DATE NOT NULL,
     URL VARCHAR(1000) NOT NULL,
-    user_id INTEGER REFERENCES users(id)
+    user_id INTEGER REFERENCES users(id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 

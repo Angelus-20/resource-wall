@@ -12,6 +12,16 @@ router.get("/", (req, res) => {
       res.status(500).json({ error: err.message });
     });
 });
+router.get("/", (req, res) => {
+  dealsQueries
+    .getAllDeals()
+    .then((dealsData) => {
+      res.render("deals", { dealsData });
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
 
 module.exports = router;
 

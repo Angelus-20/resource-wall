@@ -1,8 +1,9 @@
-DROP TABLE IF EXISTS deals CASCADE;
-CREATE TABLE comments (
-  id SERIAL PRIMARY KEY NOT NULL,
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  deals_id INTEGER REFERENCES deals(id) ON DELETE CASCADE,
-  message TEXT
- 
-);
+-- DROP TABLE IF EXISTS deals CASCADE;
+-- CREATE TABLE comments (
+--   id SERIAL PRIMARY KEY NOT NULL,
+--   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+--   deal_id INTEGER REFERENCES deals(id) ON DELETE CASCADE,
+--   message TEXT  NOT NULL
+  
+-- );
+
