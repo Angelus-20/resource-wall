@@ -5,11 +5,7 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
-const express = require('express');
-const router  = express.Router();
-
-router.get('/', (req, res) => {
-  res.render('users');
-}); 
+const express = require("express");
+const router = express.Router();
 
 module.exports = router;
