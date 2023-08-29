@@ -23,14 +23,13 @@
           <ul
             class="flex justify-center flex-col items-center space-x-2 border-2 p-6 shadow-lg rounded-lg"
           >
-            <li class=""><%= deal.title %></li>
+            <li class=""><a href="/deals"> <%= deal.title %></a></li>
             <li><%= deal.description %></li>
             <li><%= deal.url %></li>
             <li><%= deal.name %></li>
             <li><%= deal.total_likes %></li>
             <li><%= parseFloat(deal.deal_rating).toFixed(1) %></li>
           </ul>
-          <ul class="comments-list"></ul>
         </article>
 
         <% }); %>
