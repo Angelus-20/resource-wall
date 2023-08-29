@@ -15,20 +15,21 @@
     </header>
     <h3 class="text-2xl text-left p-5">All Deals:</h3>
     <div class="deals-container flex items-center justify-center mt-32">
-      <ul class="space-y-3 flex space-x-3 p-4">
+      <div class="space-y-3 flex space-x-3 p-4">
         <% dealsData.forEach((deal) => { %>
-        <div
+        <ul
           class="flex justify-center flex-col items-center space-x-2 border-2 p-6 shadow-lg rounded-lg"
         >
           <li class=""><%= deal.title %></li>
           <li><%= deal.description %></li>
           <li><%= deal.url %></li>
-          <li><%= likes %></li>
-          <li><%= ratings %></li>
-        </div>
+          <li><%= deal.name %></li>
+          <li><%= deal.total_likes %></li>
+          <li><%= parseFloat(deal.deal_rating).toFixed(1) %></li>
+        </ul>
 
         <% }); %>
-      </ul>
+      </div>
     </div>
   </body>
 </html>

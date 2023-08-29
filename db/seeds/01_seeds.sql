@@ -11,8 +11,8 @@ INSERT INTO deals (user_id, title, description, URL) VALUES (3, 'titleTest3', 'd
 
 
 INSERT INTO postRatings (user_id, deal_id, rating) VALUES (1,1,2);  
-INSERT INTO postRatings (user_id, deal_id, rating) VALUES (2,1,3);
-INSERT INTO postRatings (user_id, deal_id, rating) VALUES (3,1,4);
+INSERT INTO postRatings (user_id, deal_id, rating) VALUES (2,2,3);
+INSERT INTO postRatings (user_id, deal_id, rating) VALUES (3,3,4);
 
 
 

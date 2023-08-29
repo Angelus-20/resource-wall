@@ -9,9 +9,10 @@ const getDeals = () => {
 const getAllDeals = () => {
   return db
     .query(
-      "   SELECT users.name, deals.title, deals.description,  deals.URL, COUNT(likes) as likes, AVG(postRatings.rating) as ratings FROM deals JOIN users ON user_id = users.id JOIN likes ON deal_id = deals.id JOIN comments ON comments.deal_id = deals.id JOIN postRatings on postRatings.deal_id = deals.id GROUP BY users.id, deals.title, deals.description, deals.URL; "
+      "select deals.id, deals.title, deals.description, deals.URL, users.name, (select count (*) from likes where likes.deal_id = deals.id) as Total_Likes,(select AVG(postRatings.rating) from postRatings where postRatings.deal_id = deals.id) as Deal_Rating from deals join users on deals.user_id = users.id;"
     )
     .then((data) => {
+      console.log(data.rows);
       return data.rows;
     });
 };
@@ -35,3 +36,7 @@ module.exports = { getDeals, getAllDeals };
 // JOIN comments ON comments.deal_id = deals.id
 // JOIN postRatings on postRatings.deal_id = deals.id
 // GROUP BY users.id, deals.title, deals.description, deals.URL;
+
+// SELECT users.name, deals.title, deals.description, deals.URL, COUNT(likes) as likes, AVG(postRatings.rating) as ratings FROM deals JOIN users ON user_id = users.id JOIN likes ON deal_id = deals.id JOIN comments ON comments.deal_id = deals.id JOIN postRatings on postRatings.deal_id = deals.id GROUP BY users.id, deals.title, deals.description, deals.URL;
+
+// (select comments.message from comments where comments.deal_id = deals.id)
