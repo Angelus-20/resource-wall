@@ -1,0 +1,32 @@
+nav {
+  position: fixed;
+  height: 5%;
+  width: 100%;
+  color: #FFFFFF;
+  font-family: "Bungee", sans-serif;
+  margin: 10px;
+  padding: 0 1.5em;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #4056A1;
+  height: 100px;
+  width: auto;
+  align-items: center;
+  padding: 5px;
+}
+
+.user{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
+}
+
+.user-icon{
+  height: 100px;
+  width: 100px;
+}

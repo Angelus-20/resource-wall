@@ -4,3 +4,55 @@ body,
 html {
   margin: 0;
 }
+
+.container {
+  display: flex;
+  height: fit-content;
+  width: 100%;
+  margin-top: 140px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search-bar {
+  width: 500px;
+}
+
+.user-posts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.card {
+  margin: 20px 20px;
+  height: fit-content;
+  width: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: aliceblue;
+  border-color: black;
+  padding: 25px;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card:hover {
+  box-shadow: 0 0 11px rgba(0, 0, 0, 0.945);
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+i:active {
+  transform: scale(0.80);
+  color: rgba(0, 4, 255, 0.945);
+  background-color: none;
+}
