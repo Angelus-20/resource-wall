@@ -17,17 +17,13 @@ const getAllDeals = () => {
     });
 };
 
-// const getDetailedDeals = () => {
-//   const query = `
-//    "Select deals.id, deals.title, deals.description, deals.url, COUNT(likes.) as likes from deals left join likes on deals.id = likes.id"
-//   `;
+const getDeal = (id) => {
+  return db.query("SELECT * FROM deals where id = $1;", [id]).then((data) => {
+    return data.rows[0];
+  });
+};
 
-//   return db.query(query).then((data) => {
-//     return data.rows;
-//   });
-// };
-
-module.exports = { getDeals, getAllDeals };
+module.exports = { getDeals, getAllDeals, getDeal };
 
 // SELECT users.name, deals.title, deals.description,  deals.URL, COUNT(likes.*) as likes, AVG(postRatings.rating) as ratings
 // FROM deals

@@ -1,5 +1,7 @@
 // Client facing scripts here
 $(() => {
+  const deals = $();
+
   $.ajax({
     method: "GET",
     url: "/api/comments",

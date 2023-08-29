@@ -22,14 +22,11 @@
     <h3 class="text-2xl text-left p-5">All Deals:</h3>
     <div class="deals-container flex items-center justify-center mt-32">
       <div class="space-y-3 flex space-x-3 p-4">
-        <% dealsData.forEach((deal) => { %>
         <article data-id="<%= deal.id %>">
           <ul
             class="flex justify-center flex-col items-center space-x-2 border-2 p-6 shadow-lg rounded-lg"
           >
-            <li class="">
-              <a href="/deals/<%= deal.id %>"> <%= deal.title %></a>
-            </li>
+            <li class=""><a href="/deals"> <%= deal.title %></a></li>
             <li><%= deal.description %></li>
             <li><%= deal.url %></li>
             <li><%= deal.name %></li>
@@ -45,8 +42,6 @@
             </div>
           </ul>
         </article>
-
-        <% }); %>
       </div>
     </div>
   </body>
