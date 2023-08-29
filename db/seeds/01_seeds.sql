@@ -10,9 +10,9 @@ INSERT INTO deals (user_id, title, description, URL) VALUES (2, 'titleTest2', 'd
 INSERT INTO deals (user_id, title, description, URL) VALUES (3, 'titleTest3', 'descriptionTest3', 'exampleUrl3@example.com');
 
 
-INSERT INTO ratings (user_id, deal_id) VALUES (1,1);  
-INSERT INTO ratings (user_id, deal_id) VALUES (2,1);
-INSERT INTO ratings (user_id, deal_id) VALUES (3,1);
+INSERT INTO postRatings (user_id, deal_id) VALUES (1,1);  
+INSERT INTO postRatings (user_id, deal_id) VALUES (2,1);
+INSERT INTO postRatings (user_id, deal_id) VALUES (3,1);
 
 
 
