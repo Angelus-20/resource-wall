@@ -6,14 +6,14 @@ INSERT INTO users (name, email, password) VALUES ('exampleUser3', 'exampleEmail3
 
 -- Change this from ratings, still having errors
 
-INSERT INTO liked (user_id, deal_id) VALUES (1,1);  
-INSERT INTO liked (user_id, deal_id) VALUES (2,1);
-INSERT INTO liked (user_id, deal_id) VALUES (3,1);
-
 
 INSERT INTO deals (user_id, title, description, URL) VALUES (1, 'titleTest1', 'descriptionTest1', 'exampleUrl1@example.com');
 INSERT INTO deals (user_id, title, description, URL) VALUES (2, 'titleTest2', 'descriptionTest2', 'exampleUrl2@example.com');
 INSERT INTO deals (user_id, title, description, URL) VALUES (3, 'titleTest3', 'descriptionTest3', 'exampleUrl3@example.com');
+
+INSERT INTO ratings (user_id, deal_id) VALUES (1,1);  
+INSERT INTO ratings (user_id, deal_id) VALUES (2,1);
+INSERT INTO ratings (user_id, deal_id) VALUES (3,1);
 
 
 INSERT INTO likes (user_id, deal_id) VALUES (1,1);
