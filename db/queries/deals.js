@@ -23,7 +23,19 @@ const getDeal = (id) => {
   });
 };
 
-module.exports = { getDeals, getAllDeals, getDeal };
+// INSERT INTO likes (user_id, deal_id) VALUES (1,1);
+const likeDeal = (deal_id, user_id = 1) => {
+  return db
+    .query("insert into likes (deal_id, user_id) values ($1, $2);", [
+      deal_id,
+      user_id,
+    ])
+    .then((data) => {
+      return data.rows;
+    });
+};
+
+module.exports = { getDeals, getAllDeals, getDeal, likeDeal };
 
 // SELECT users.name, deals.title, deals.description,  deals.URL, COUNT(likes.*) as likes, AVG(postRatings.rating) as ratings
 // FROM deals

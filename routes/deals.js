@@ -35,6 +35,19 @@ router.get("/:id", (req, res) => {
     });
 });
 
+router.get("/like/:id", (req, res) => {
+  const dealId = req.params.id;
+  const userId = 1;
+  dealsQueries
+    .likeDeal(dealId, userId)
+    .then((deals) => {
+      res.redirect("/deals");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
 module.exports = router;
 
 // INSERT INTO deals (title, description, date_added, URL, user_id) VALUES

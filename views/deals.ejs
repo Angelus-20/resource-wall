@@ -35,8 +35,10 @@
             <li><%= deal.name %></li>
             <div class="flex gap-3 space-x-4">
               <li class="">
-                <i class="fa-regular fa-heart fa-beat-fade"></i> <%=
-                deal.total_likes %>
+                <a href="/deals/like/<%= deal.id %>">
+                  <i class="fa-regular fa-heart fa-beat-fade"></i>
+                </a>
+                <%= deal.total_likes %>
               </li>
               <li>
                 <i class="fa-regular fa-star fa-beat-fade space-x-4"></i><%=
