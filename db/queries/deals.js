@@ -34,8 +34,29 @@ const likeDeal = (deal_id, user_id = 1) => {
       return data.rows;
     });
 };
+const rateDeal = (deal_id, user_id = 1, rating) => {
+  return db
+    .query(
+      "insert into postRatings (deal_id, user_id, rating) values ($1, $2, $3);",
+      [deal_id, user_id, rating]
+    )
+    .then((data) => {
+      return data.rows;
+    });
+};
 
-module.exports = { getDeals, getAllDeals, getDeal, likeDeal };
+// const rateDeal = (deal_id, user_id, rating) => {
+//   return db
+//     .query(
+//       "insert into ratings (deal_id, user_id, rating_value) values ($1, $2, $3);",
+//       [deal_id, user_id, rating]
+//     )
+//     .then((data) => {
+//       return data.rows;
+//     });
+// };
+
+module.exports = { getDeals, getAllDeals, getDeal, likeDeal, rateDeal };
 
 // SELECT users.name, deals.title, deals.description,  deals.URL, COUNT(likes.*) as likes, AVG(postRatings.rating) as ratings
 // FROM deals

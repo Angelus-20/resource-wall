@@ -38,8 +38,22 @@ router.get("/:id", (req, res) => {
 router.get("/like/:id", (req, res) => {
   const dealId = req.params.id;
   const userId = 1;
+  console.log("checking");
   dealsQueries
     .likeDeal(dealId, userId)
+    .then((deals) => {
+      res.redirect("/deals");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+router.get("/rate/:rating/deal/:id", (req, res) => {
+  const dealId = req.params.id;
+  const rating = req.params.rating;
+  const userId = 1;
+  dealsQueries
+    .rateDeal(dealId, userId, rating)
     .then((deals) => {
       res.redirect("/deals");
     })

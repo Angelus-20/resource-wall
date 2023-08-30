@@ -41,8 +41,25 @@
                 <%= deal.total_likes %>
               </li>
               <li>
-                <i class="fa-regular fa-star fa-beat-fade space-x-4"></i><%=
-                parseFloat(deal.deal_rating).toFixed(1) %>
+                <a href="/deals/rate/1/deal/<%= deal.id %>"
+                  ><i class="fa-regular fa-star fa-beat-fade space-x-4"></i
+                ></a>
+                <a href="/deals/rate/2/deal/<%= deal.id %>"
+                  ><i class="fa-regular fa-star fa-beat-fade space-x-4"></i
+                ></a>
+                <a href="/deals/rate/3/deal/<%= deal.id %>"
+                  ><i class="fa-regular fa-star fa-beat-fade space-x-4"></i
+                ></a>
+                <a href="/deals/rate/4/deal/<%= deal.id %>"
+                  ><i class="fa-regular fa-star fa-beat-fade space-x-4"></i
+                ></a>
+                <a href="/deals/rate/5/deal/<%= deal.id %>"
+                  ><i class="fa-regular fa-star fa-beat-fade space-x-4"></i
+                ></a>
+
+                <!-- <i class="fa-solid fa-angle-up"></i> -->
+
+                <%= parseFloat(deal.deal_rating).toFixed(1) %>
               </li>
             </div>
           </ul>
