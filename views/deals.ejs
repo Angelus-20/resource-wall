@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>deals</title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/nav.css">
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/users.js"></script>
+  <script src="/scripts/deals.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <!-- Top nav bar (fixed) -->
+  <%- include('partials/header') %>
+    <!-- Page-specific (main) content here -->
+    <main>
+      <div class="deals">
+        <main class="card-deals">
+          <header class="add_favorite">
+            <img src="/images/user1.png" style="width:100%">
+            <i class="fa-solid fa-plus"></i>
+          </header>
+          <div>Description</div>
+          <footer class="icons-deals">
+            <span><i class="fas fa-retweet"></i> 10</span>
+            <span><i class="far fa-solid fa-heart"></i> 15</span>
+            <span><i class="fas fa-share"></i></span>
+          </footer>
+        </main>
+      </div>
+      <div class="comments">
+        <form method="POST" autocomplete="off">
+          <textarea id="comment-text" class="comments-area"></textarea>
+          <div class="comment">
+            <button type="submit" class="comment-button">Comment</button>
+            <output name="counter" class="counter" id="comment-counter">140</output>
+          </div>
+            <div id="comments-container"></div>
+        </form>
+      </div>
+      <script src="app.js"></script>
+    </main>
+</body>
+
+</html>

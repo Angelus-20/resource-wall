@@ -31,7 +31,9 @@ app.use(express.static('public'));
 const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
-const userProfile = require('/routes/profile');
+const profileRoutes = require('./routes/profile');
+const dealRoutes = require('./routes/deals');
+const favoritesRoutes = require('./routes/favorites');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -39,7 +41,9 @@ const userProfile = require('/routes/profile');
 app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
-app.use('/profile', userProfile);
+app.use('/profile', profileRoutes);
+app.use('/deals', dealRoutes);
+app.use('/favorites', favoritesRoutes);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -49,8 +53,6 @@ app.use('/profile', userProfile);
 app.get('/', (req, res) => {
   res.render('index');
 });
-
-app.get('/profiles')
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

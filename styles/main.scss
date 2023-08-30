@@ -2,7 +2,6 @@ body {
   display: flex;
   width: 100vw;
   min-height: 100vh;
-  background: rgb(163, 208, 219);
   background: linear-gradient(
     227deg,
     rgba(163, 208, 219, 1) 0%,
@@ -15,5 +14,6 @@ body {
 }
 
 main {
+  height: 100%;
   width: 100%;
 }

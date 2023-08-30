@@ -1,15 +1,23 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const path = require('path'); // Import the path module
 
-// Set up your view engine and other middlewares here
+// ...
 
-// Import the profileRoutes.js file
-const profileRoutes = require('./profileRoutes');
+// Set the 'views' directory for your templates
+app.set('views', path.join(__dirname, 'views'));
+// Set the view engine to EJS
+app.set('view engine', 'ejs');
 
-// Use the router for the /profile path
-app.use('/profile', profileRoutes);
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+// ...
+
+// Use the deals route
+const dealsRouter = require('./routes/deals');
+app.use('/deals', dealsRouter);
+
+// ...
+
+module.exports = router;

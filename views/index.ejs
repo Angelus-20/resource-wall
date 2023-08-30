@@ -25,22 +25,22 @@
 <body>
   <!-- Top nav bar (fixed) -->
   <%- include('partials/header') %>
-  <!-- Page-specific (main) content here -->
-  <main>
-    <section class="container">
-      <label>searching...</label>
-      <textarea class="search-bar"></textarea>
-      <h4>ALL DEALS!</h4>
-    </section>
-    <hr>
-    <section class="user-posts">
-      <!-- create for loop to loop through all the posts/deals
-        for each post/deal render it including functionalities(likes, comments)-->
-        <% for (let i = 0; i < 15; i++){ %>
-        <%- include('partials/deal-card') %>
-          <% } %>
+    <!-- Page-specific (main) content here -->
+    <main>
+      <section class="container">
+        <label>searching...</label>
+        <textarea class="search-bar"></textarea>
+        <p>ALL DEALS!</p>
       </section>
-  </main>
+      <hr>
+      <section class="user-posts">
+        <!-- create for loop to loop through all the posts/deals
+        for each post/deal render it including functionalities(likes, comments)-->
+        <% for (let i=0; i < 15; i++){ %>
+          <%- include('partials/deal-card') %>
+            <% } %>
+      </section>
+    </main>
 </body>
 
 </html>
