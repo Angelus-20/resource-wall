@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/nav.css">
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
   <title>Document</title>
 </head>
+
 <body>
-  <placeholder>here would go the list of favorite posts added</placeholder>
+  <!-- Top nav bar (fixed) -->
+  <%- include('partials/header') %>
+    <!-- Page-specific (main) content here -->
+    <article>
+      <header class="deals-head">My Deals</header>
+    </article>
+    <article class="posts-container">
+      <div class="flex-box">
+        This is box 1!
+        <placeholder>here would go the list info</placeholder>
+      </div>
+      <div class="flex-box">
+        This is box 2!
+        <placeholder>here would go the list info</placeholder>
+      </div>
+      <div class="flex-box">
+        This is box 3!
+        <placeholder>here would go the list info</placeholder>
+      </div>
+    </article>
 </body>
+
 </html>

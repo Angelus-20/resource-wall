@@ -3,7 +3,9 @@
 body,
 html {
   margin: 0;
+  padding: 0;
 }
+
 /* Basic styling for the index page */
 
 .container {
@@ -39,7 +41,7 @@ html {
   border: 1px solid rgb(0, 0, 0);
 }
 
-.card:active{
+.card:active {
   transform: scale(0.995);
 }
 
@@ -91,9 +93,12 @@ html {
 }
 
 @keyframes bounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -108,10 +113,10 @@ i:active {
 
 /* Basic styling for the profile */
 
-.avatar{
-  width:200px;
-  height:200px;
-  }	
+.avatar {
+  width: 200px;
+  height: 200px;
+}
 
 .profile {
   display: flex;
@@ -121,22 +126,51 @@ i:active {
   width: 100px;
 }
 
-.favorites{
+.profile-pic {
+  display: flex;
+  margin: 20px;
+  flex-direction: row;
+}
+
+.favorites {
   height: 200px;
   width: 98%;
   background-color: antiquewhite;
   margin: 10px;
 }
 
-.add_favorite{
+.add_favorite {
   display: flex;
   height: fit-content;
   width: fit-content;
 }
 
+.profile-column {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.labels-group{
+  display: flex;
+  flex-direction: column;
+}
+
+.editable .data-value {
+  display: none;
+}
+
+.editable input {
+  display: block;
+}
+
+.data-row {
+  margin-bottom: 10px;
+}
+
 /* Basic styling for the Deals posts */
 
-.deals{
+.deals {
   display: flex;
   flex-direction: column;
   margin-top: 100px;
@@ -149,7 +183,7 @@ i:active {
   justify-content: space-between;
 }
 
-.card-deals{
+.card-deals {
   margin: 20px 20px;
   height: fit-content;
   width: fit-content;
@@ -163,18 +197,18 @@ i:active {
 
 /* Basic styling for the bot comments */
 
-.comments{
+.comments {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.comments-area{
+.comments-area {
   width: 700px;
   height: 50px;
 }
 
-.user-comments{
+.user-comments {
   width: 600px;
   height: 100px;
   margin: 10px;
@@ -182,7 +216,7 @@ i:active {
   background-color: bisque;
 }
 
-.bot-container{
+.bot-container {
   display: flex;
   height: fit-content;
   width: fit-content;
@@ -193,7 +227,36 @@ i:active {
   background-color: rgb(209, 209, 209);
 }
 
-.bot-users{
+.bot-users {
   height: 50px;
   width: 50px;
+}
+
+/* Basic styling for the favorites container */
+
+.deals-head {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  margin-top: 150px;
+  justify-content: center;
+}
+
+.posts-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flex-box {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(blue, green);
+  color: white;
+  font-size: 25px;
+  border-radius: 20px;
+  margin: 10px;
 }
