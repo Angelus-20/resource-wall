@@ -25,6 +25,8 @@ app.use(
   })
 );
 app.use(express.static("public"));
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -55,6 +57,12 @@ app.get("/", (req, res) => {
 app.get("/users", (req, res) => {
   res.render("users");
 });
+
+// app.get("/test", (req, res) => {
+//   console.log("check route");
+//   // res.render("newdeal");
+//   return res.send("ok");
+// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

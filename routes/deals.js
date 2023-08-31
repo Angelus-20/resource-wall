@@ -2,24 +2,31 @@ const express = require("express");
 const router = express.Router();
 const dealsQueries = require("../db/queries/deals");
 
-// router.get("/", (req, res) => {
-//   dealsQueries
-//     .getDeals()
-//     .then((dealsData) => {
-//       res.render("deals", { dealsData });
-//     })
-//     .catch((err) => {
-//       res.status(500).json({ error: err.message });
-//     });
-// });
 router.get("/", (req, res) => {
   dealsQueries
     .getAllDeals()
     .then((dealsData) => {
+      console.log(dealsData);
       res.render("deals", { dealsData });
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
+    });
+});
+
+router.get("/newdeal", (req, res) => {
+  return res.render("newdeal");
+});
+router.post("/newdeal", (req, res) => {
+  const { Title, Description, URL } = req.body;
+
+  dealsQueries
+    .insertDeal(1, Title, Description, URL)
+    .then(() => {
+      res.redirect("/deals");
+    })
+    .catch((error) => {
+      res.status(500).json({ error: error.message });
     });
 });
 

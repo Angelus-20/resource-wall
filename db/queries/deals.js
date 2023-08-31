@@ -43,6 +43,28 @@ const rateDeal = (deal_id, user_id = 1, rating) => {
       return data.rows;
     });
 };
+const newDeal = () => {
+  return db
+    .query("insert into deals (title, description, URL) values ($1, $2, $3);", [
+      title,
+      description,
+      URL,
+    ])
+    .then((data) => {
+      return data.rows;
+    });
+};
+
+const insertDeal = (user_id, title, description, url) => {
+  return db.query(
+    `
+    INSERT INTO deals (user_id, title, description, URL) 
+    VALUES ($1, $2, $3, $4)
+    RETURNING *;
+  `,
+    [user_id, title, description, url]
+  );
+};
 
 // const rateDeal = (deal_id, user_id, rating) => {
 //   return db
@@ -55,7 +77,15 @@ const rateDeal = (deal_id, user_id = 1, rating) => {
 //     });
 // };
 
-module.exports = { getDeals, getAllDeals, getDeal, likeDeal, rateDeal };
+module.exports = {
+  getDeals,
+  getAllDeals,
+  getDeal,
+  likeDeal,
+  rateDeal,
+  newDeal,
+  insertDeal,
+};
 
 // SELECT users.name, deals.title, deals.description,  deals.URL, COUNT(likes.*) as likes, AVG(postRatings.rating) as ratings
 // FROM deals
