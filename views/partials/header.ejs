@@ -4,19 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>header</title>
 </head>
 
 <body>
   <header>
-    <nav>
-      <div class="nav-bar">
+    <nav class="nav-style">
+      <div class="search-group">
         <div class="logo">Logo</div>
-        <div class="user">
-          <a href="/favorites">My Deals</a>
-          <a href="/profile"><img class="user-icon" src="/images/user2.png" alt="User Icon"></a>
-          <a href="/profile"><i class="fa-solid fa-angles-down fa-bounce" data-id="arrow-icon"></i>  My Profile</a>
+        <div class="search-container">
+          <textarea class="search-bar"></textarea>
+          <button>search</button>
         </div>
+      </div>
+      <div class="user">
+        <a href="/"><i class="fa-solid fa-house"></i></a>
+        <a href="/favorites">My Deals</a>
+        <a href="/profile"><i class="fa-solid fa-angles-down fa-bounce" data-id="arrow-icon"></i> My Profile</a>
+        <button class="button"><a href="/profile">Login</a></button>
       </div>
     </nav>
   </header>

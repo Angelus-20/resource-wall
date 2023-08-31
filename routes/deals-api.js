@@ -1,7 +1,7 @@
 /*
  * All routes for User Data are defined here
- * Since this file is loaded in server.js into api/profile,
- *   these routes are mounted onto /api/profile
+ * Since this file is loaded in server.js into api/deals,
+ *   these routes are mounted onto /api/deals
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
