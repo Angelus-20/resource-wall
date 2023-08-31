@@ -14,6 +14,19 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/saved", (req, res) => {
+  const userId = 1;
+  dealsQueries
+    .getSavedDeals(userId)
+    .then((savedData) => {
+      res.render("saved", { savedData });
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
+
 router.get("/newdeal", (req, res) => {
   return res.render("newdeal");
 });
@@ -29,6 +42,7 @@ router.post("/newdeal", (req, res) => {
       res.status(500).json({ error: error.message });
     });
 });
+
 
 router.get("/:id", (req, res) => {
   const dealId = req.params.id;

@@ -66,16 +66,14 @@ const insertDeal = (user_id, title, description, url) => {
   );
 };
 
-// const rateDeal = (deal_id, user_id, rating) => {
-//   return db
-//     .query(
-//       "insert into ratings (deal_id, user_id, rating_value) values ($1, $2, $3);",
-//       [deal_id, user_id, rating]
-//     )
-//     .then((data) => {
-//       return data.rows;
-//     });
-// };
+const getSavedDeals = (userId) => {
+  return db.query(
+    "SELECT * FROM deals WHERE user_id = $1 OR id IN (SELECT deal_id FROM likes WHERE user_id = $1);",
+    [userId]
+  ).then((data) => {
+    return data.rows;
+  });
+};
 
 module.exports = {
   getDeals,
@@ -85,6 +83,7 @@ module.exports = {
   rateDeal,
   newDeal,
   insertDeal,
+  getSavedDeals
 };
 
 // SELECT users.name, deals.title, deals.description,  deals.URL, COUNT(likes.*) as likes, AVG(postRatings.rating) as ratings

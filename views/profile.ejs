@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/38b727e8a2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script src="/scripts/icons.js"></script>
+  </head>
+
+  <body class="bg-white font-semibold text-black font-sans max-w-6xl m-auto">
+    <header class="p-5 flex justify-between items-center">
+      <div class="text-2xl"><a href="/deals">Deals</a></div>
+      <a href="" class="rounded-full bg-blue-300 px-3 py-1 shadow-lg"
+        >My Deals</a
+      >
+      <div class="flex gap-10">
+        <a href="/deals/newdeal"><i class="fa-solid fa-plus text-2xl"></i></a>
+        <a href="/profile"><i class="fa-solid fa-user text-2xl"></i></a>
+      </div>
+    </header>
+
+    <!-- test -->
+    <% if (users) { %>
+      <%=  %>
+      <li><%= users[0].name %></li>
+      <li><%= users[0].email %></li>
+      <li><%= users[0].password %></li>
+    <% } %>
+    
+ 
+  </body>
+</html>

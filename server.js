@@ -34,6 +34,7 @@ const userApiRoutes = require("./routes/users-api");
 const widgetApiRoutes = require("./routes/widgets-api");
 const usersRoutes = require("./routes/users");
 const dealsRoute = require("./routes/deals");
+const profileRoutes = require("./routes/profile");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -42,6 +43,7 @@ app.use("/api/users", userApiRoutes);
 app.use("/api/widgets", widgetApiRoutes);
 app.use("/users", usersRoutes);
 app.use("/deals", dealsRoute);
+app.use("/profile", profileRoutes);
 // app.use("/deals", usersRoutes);
 app.use(express.json());
 // Note: mount other resources here, using the same pattern above

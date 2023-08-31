@@ -10,41 +10,39 @@
     ></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/vendor/jquery-3.0.0.js"></script>
-    <script src="/scripts/comments.js"></script>
+    <script src="/scripts/icons.js"></script>
   </head>
 
   <body class="bg-white font-semibold text-black font-sans max-w-6xl m-auto">
     <header class="p-5 flex justify-between items-center">
       <div class="text-2xl"><a href="/deals">Deals</a></div>
+      <a href="" class="rounded-full bg-blue-300 px-3 py-1 shadow-lg"
+        >My Deals</a
+      >
       <div class="flex gap-10">
         <a href="/deals/newdeal"><i class="fa-solid fa-plus text-2xl"></i></a>
         <a href="/profile"><i class="fa-solid fa-user text-2xl"></i></a>
       </div>
-      </div>
     </header>
-    <h3 class="text-2xl text-left p-5">All Deals:</h3>
-    <div class="deals-container flex items-center justify-center mt-20">
+    <h3 class="text-2xl text-left p-5">Saved Deals:</h3>
+    <div class="deals-container flex items-center justify-center mt-32">
       <div class="space-y-3 flex space-x-3 p-4">
+        <% savedData.forEach((deal) => { %>
         <article data-id="<%= deal.id %>">
           <ul
             class="flex justify-center flex-col items-center space-x-2 border-2 p-6 shadow-lg rounded-lg"
           >
-            <li class=""><a href="/deals"> <%= deal.title %></a></li>
+            <li class="">
+              <a href="/deals/<%= deal.id %>"> <%= deal.title %></a>
+            </li>
             <li><%= deal.description %></li>
             <li><%= deal.url %></li>
             <li><%= deal.name %></li>
-            <div class="flex gap-3 space-x-4">
-              <li class="">
-                <i class="fa-regular fa-heart fa-beat-fade"></i> <%=
-                deal.total_likes %>
-              </li>
-              <li>
-                <i class="fa-regular fa-star fa-beat-fade space-x-4"></i><%=
-                parseFloat(deal.deal_rating).toFixed(1) %>
-              </li>
-            </div>
+            <div class="flex gap-3 space-x-4"></div>
           </ul>
         </article>
+
+        <% }); %>
       </div>
     </div>
   </body>
