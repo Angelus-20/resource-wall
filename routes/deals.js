@@ -23,12 +23,54 @@ router.get("/", (req, res) => {
     });
 });
 
+
+router.get("/comments", (req, res) => {
+  res.send("test");
+  
+//   dealsQueries
+//
+//     .then((comments) => {
+//       res.render("deals", { comments });
+//     })
+//     .catch((err) => {
+//       res.status(500).json({ error: err.message });
+//     });
+});
+
+
 router.get("/:id", (req, res) => {
   const dealId = req.params.id;
-  dealsQueries
-    .getDeal(dealId)
+  
+  // Fetch the deal
+  dealsQueries.getDeal(dealId)
     .then((deal) => {
-      res.render("deal", { deal });
+      
+      // Now fetch the comments for this deal
+      dealsQueries.getCommentsForDeal(dealId)
+        .then((comments) => {
+          
+          // Render the page with both deal and its comments
+          res.render("deal", { deal, comments });
+          
+        })
+        .catch((err) => {
+          res.status(500).json({ error: err.message });
+        });
+      
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
+
+router.get("/:id", (req, res) => {
+  const dealId = req.params.id;
+  const userId = 1;
+  dealsQueries
+    .makeDealComment(userId, dealId)
+    .then((deals) => {
+      res.redirect("deal", { deal });
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });

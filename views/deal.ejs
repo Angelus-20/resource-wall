@@ -42,6 +42,16 @@
             </div>
           </ul>
         </article>
+        <h4 class="text-xl mt-4">Comments:</h4>
+        <ul>
+          <% comments.forEach(comment => { %>
+          <li>
+            <strong><%= comment.user_id %></strong>: <%= comment.message %>
+            <!-- Assuming each comment has a user_id and message field -->
+          </li>
+          <% }); %>
+        </ul>
+        <a href="/deals/comments"> View</a>
       </div>
     </div>
   </body>
