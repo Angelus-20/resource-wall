@@ -9,6 +9,15 @@ INSERT INTO deals (user_id, title, description, URL) VALUES (1, 'titleTest1', 'd
 INSERT INTO deals (user_id, title, description, URL) VALUES (2, 'titleTest2', 'descriptionTest2', 'exampleUrl2@example.com');
 INSERT INTO deals (user_id, title, description, URL) VALUES (3, 'titleTest3', 'descriptionTest3', 'exampleUrl3@example.com');
 
+INSERT INTO deals (user_id, title, description, URL) VALUES (2, 'titleTest4', 'descriptionTest4', 'exampleUrl1@example.com');
+INSERT INTO deals (user_id, title, description, URL) VALUES (1, 'titleTest1', 'descriptionTest1', 'exampleUrl1@example.com');
+INSERT INTO deals (user_id, title, description, URL) VALUES (1, 'titleTest1', 'descriptionTest1', 'exampleUrl1@example.com');
+INSERT INTO deals (user_id, title, description, URL) VALUES (1, 'titleTest1', 'descriptionTest1', 'exampleUrl1@example.com');
+INSERT INTO deals (user_id, title, description, URL) VALUES (1, 'titleTest1', 'descriptionTest1', 'exampleUrl1@example.com');
+INSERT INTO deals (user_id, title, description, URL) VALUES (1, 'titleTest1', 'descriptionTest1', 'exampleUrl1@example.com');
+INSERT INTO deals (user_id, title, description, URL) VALUES (1, 'titleTest1', 'descriptionTest1', 'exampleUrl1@example.com');
+INSERT INTO deals (user_id, title, description, URL) VALUES (1, 'titleTest1', 'descriptionTest1', 'exampleUrl1@example.com');
+INSERT INTO deals (user_id, title, description, URL) VALUES (1, 'titleTest1', 'descriptionTest1', 'exampleUrl1@example.com');
 
 INSERT INTO postRatings (user_id, deal_id, rating) VALUES (1,1,3);  
 INSERT INTO postRatings (user_id, deal_id, rating) VALUES (2,2,3);
@@ -20,6 +29,10 @@ INSERT INTO postRatings (user_id, deal_id, rating) VALUES (3,3,3);
 INSERT INTO likes (user_id, deal_id) VALUES (1,1);
 INSERT INTO likes (user_id, deal_id) VALUES (2,2);
 INSERT INTO likes (user_id, deal_id) VALUES (3,3);
+INSERT INTO likes (user_id, deal_id) VALUES (1,1);
+INSERT INTO likes (user_id, deal_id) VALUES (1,2);
+INSERT INTO likes (user_id, deal_id) VALUES (1,3);
+INSERT INTO likes (user_id, deal_id) VALUES (1,4);
 
 
 INSERT INTO comments (user_id, deal_id, message) VALUES ( 1, 1, 'example message 1');

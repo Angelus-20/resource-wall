@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/38b727e8a2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script src="/scripts/icons.js"></script>
+  </head>
+
+  <body class="bg-white font-semibold text-black font-sans">
+    <header class="p-5 flex justify-between items-center">
+      <div class="text-2xl"><h1>Deals</h1></div>
+      <h3 class="text-2xl">My Deals</h3>
+      <h3 class="text-2xl">My Profile</h3>
+    </header>
+    <h3 class="text-2xl text-left p-5">Saved Deals:</h3>
+    <div class="deals-container flex items-center justify-center mt-32">
+      <div class="space-y-3 flex space-x-3 p-4">
+        <% savedData.forEach((deal) => { %>
+        <article data-id="<%= deal.id %>">
+          <ul
+            class="flex justify-center flex-col items-center space-x-2 border-2 p-6 shadow-lg rounded-lg"
+          >
+            <li class="">
+              <a href="/deals/<%= deal.id %>"> <%= deal.title %></a>
+            </li>
+            <li><%= deal.description %></li>
+            <li><%= deal.url %></li>
+            <li><%= deal.name %></li>
+            <div class="flex gap-3 space-x-4"></div>
+          </ul>
+        </article>
+
+        <% }); %>
+      </div>
+    </div>
+  </body>
+</html>

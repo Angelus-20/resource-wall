@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const dealsQueries = require("../db/queries/deals");
 
+
+
+
+
 // router.get("/", (req, res) => {
 //   dealsQueries
 //     .getDeals()
@@ -24,6 +28,8 @@ router.get("/", (req, res) => {
 });
 
 
+
+
 router.get("/comments", (req, res) => {
   res.send("test");
   
@@ -36,6 +42,21 @@ router.get("/comments", (req, res) => {
 //       res.status(500).json({ error: err.message });
 //     });
 });
+
+
+
+router.get("/saved", (req, res) => {
+  const userId = 1;
+  dealsQueries
+    .getSavedDeals(userId)
+    .then((savedData) => {
+      res.render("saved", { savedData });
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
 
 
 router.get("/:id", (req, res) => {
@@ -77,6 +98,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
+
 router.get("/like/:id", (req, res) => {
   const dealId = req.params.id;
   const userId = 1;
@@ -89,6 +111,22 @@ router.get("/like/:id", (req, res) => {
       res.status(500).json({ error: err.message });
     });
 });
+
+
+router.post("/comment/:id", (req, res) => {
+  const dealId = req.params.id;
+  const userId = 1;
+  const comment = req.body.comment;
+  dealsQueries
+    .makeDealComment(userId, dealId, comment)
+    .then((commentVal) => {
+      res.redirect("/deals/" + dealId);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
 
 router.get("/rate/:rating/deal/:id", (req, res) => {
   const dealId = req.params.id;
@@ -103,6 +141,7 @@ router.get("/rate/:rating/deal/:id", (req, res) => {
       res.status(500).json({ error: err.message });
     });
 });
+
 
 module.exports = router;
 

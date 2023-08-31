@@ -16,6 +16,17 @@ const getAllDeals = () => {
     });
 };
 
+
+const getSavedDeals = (userId) => {
+  return db.query(
+    "SELECT * FROM deals WHERE user_id = $1 OR id IN (SELECT deal_id FROM likes WHERE user_id = $1);",
+    [userId]
+  ).then((data) => {
+    return data.rows;
+  });
+};
+
+
 const getDeal = (id) => {
   return db.query("SELECT * FROM deals where id = $1;", [id]).then((data) => {
     return data.rows[0];
@@ -30,17 +41,21 @@ const getCommentsForDeal = (dealId) => {
 
 
 // INSERT into comments (user_id, deal_id) VALUES (1, 2);
-const makeDealComment = (user_id, deal_id = 1) => {
+const makeDealComment = (user_id = 1, deal_id , comment) => {
   return db
-    .query("INSERT IN comments (user_id, deal_id) values ($1, $2);", [
+    .query("INSERT INTO comments (user_id, deal_id, message) values ($1, $2, $3);", [
       user_id,
-      deal_id
+      deal_id,
+      comment
     ])
     .then((data) => {
       return data.rows;
     });
 };
 
+
+
+// INSERT INTO comments (deal)
 
 // INSERT INTO likes (user_id, deal_id) VALUES (1,1);
 const likeDeal = (deal_id, user_id = 1) => {
@@ -75,7 +90,7 @@ const rateDeal = (deal_id, user_id = 1, rating) => {
 //     });
 // };
 
-module.exports = { getDeals, getAllDeals, getDeal, likeDeal, rateDeal, getCommentsForDeal };
+module.exports = { getDeals, getAllDeals, getDeal, likeDeal, rateDeal, getCommentsForDeal, makeDealComment, getSavedDeals};
 
 // SELECT users.name, deals.title, deals.description,  deals.URL, COUNT(likes.*) as likes, AVG(postRatings.rating) as ratings
 // FROM deals
