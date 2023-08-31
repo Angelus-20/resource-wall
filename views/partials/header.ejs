@@ -13,10 +13,11 @@
     <nav class="nav-style">
       <div class="search-group">
         <div class="logo">Logo</div>
-        <div class="search-container">
-          <textarea class="search-bar"></textarea>
-          <button>search</button>
-        </div>
+        <form id="searchForm" action="/deals/searchRender" method="get">
+          <label for="search">Search Deals</label>
+          <input type="search" id="search" />
+          <button label="search-buton" type="submit">Submit</button>
+        </form>
       </div>
       <div class="user">
         <a href="/"><i class="fa-solid fa-house"></i></a>
@@ -26,6 +27,7 @@
       </div>
     </nav>
   </header>
+  <script type="text/javascript" src="/scripts/deals.js"></script>
 </body>
 
 </html>

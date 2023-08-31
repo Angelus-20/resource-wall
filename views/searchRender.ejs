@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="search-render.scss" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  </head>
+
+  <body class="bg-white font-semibold text-black font-sans">
+    <div class="search-wrapper">
+      <form id="searchForm" action="/deals/searchRender" method="get">
+        <label for="search">Search Deals</label>
+        <input type="search" id="search" />
+        <button label="search-buton" type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="user-cards">
+      <div class="card">
+        <div class="card"></div>
+        <div class="header">My name</div>
+        <div class="body">Email</div>
+      </div>
+    </div>
+    <header class="p-5 flex justify-between items-center">
+      <div class="text-2xl"><h1>Deals</h1></div>
+      <h3 class="text-2xl">My Deals</h3>
+      <h3 class="text-2xl">My Profile</h3>
+    </header>
+    <h3 class="text-2xl text-left p-5">All Deals:</h3>
+
+    <section class="main-container"></section>
+
+    <script type="text/javascript" src="/scripts/deals.js"></script>
+    <!-- when page renders / tryng to select element, if script is at top it might cause an error - if there was something in JS that happened immediately, the head would load first causing an error / not work bc no HTML has loaded -->
+  </body>
+</html>
