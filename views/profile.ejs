@@ -26,12 +26,89 @@
     </header>
 
     <!-- test -->
+
     <% if (users) { %>
       <%=  %>
-      <li><%= users[0].name %></li>
-      <li><%= users[0].email %></li>
-      <li><%= users[0].password %></li>
+      <div class="flex justify-center flex-col-reverse items-center space-x-6 mx-auto">
+        <div class="p-5 shadow-md space-y-2">
+          <h3 class="text-center">User Info:</h3>
+          <li class=""><%= users[0].name %></li>
+          <li class=" "><%= users[0].email %></li>
+          <li><%= users[0].password %></li>
+  
+        </div>
+       
+  
+        <div class="flex justify-center items-center mt-20">
+          <div class="w-full max-w-xs">
+            <h2 class="text-center mb-5 text-2xl">Update Info</h2>
+            <form
+              id="dealForm"
+              action="/deals/newdeal"
+              method="POST"
+              class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+            >
+              <div class="mb-4">
+                <label
+                  class="block text-gray-700 text-sm font-bold mb-2"
+              
+                >
+                  Username
+                </label>
+                <input
+                  name="username"
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="username"
+                  type="text"
+                  placeholder="Enter new username"
+                />
+              </div>
+              <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2">
+                  Email
+                </label>
+                <input
+                  name="email"
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                  id="Description"
+                  type="email"
+                  placeholder="Enter new email"
+                />
+              </div>
+              <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2">
+                 Password
+                </label>
+                <input
+                  name="password"
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                  id="password"
+                  type="password"
+                  placeholder="Enter New Password"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <button
+                  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  type="submit"
+                >
+                  Submit
+                </button>
+                <button
+                  class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+                  type="reset"
+                >
+                  Clear
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
     <% } %>
+    
+
     
  
   </body>
