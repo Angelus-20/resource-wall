@@ -10,7 +10,7 @@
     ></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/vendor/jquery-3.0.0.js"></script>
-    <script src="/scripts/comments.js"></script>
+    <script src="/scripts/icons.js"></script>
   </head>
 
   <body class="bg-white font-semibold text-black font-sans">
@@ -36,25 +36,35 @@
             <div class="flex gap-3 space-x-4">
               <li class="">
                 <a href="/deals/like/<%= deal.id %>">
-                  <i class="fa-regular fa-heart fa-beat-fade"></i>
+                  <i class="fa-regular fa-heart fa-beat-fade text-red-500"></i>
                 </a>
                 <%= deal.total_likes %>
               </li>
               <li>
                 <a href="/deals/rate/1/deal/<%= deal.id %>"
-                  ><i class="fa-regular fa-star fa-beat-fade space-x-4"></i
+                  ><i
+                    class="fa-regular fa-star fa-beat space-x-4 hover:text-yellow-400 hover-rate"
+                  ></i
                 ></a>
                 <a href="/deals/rate/2/deal/<%= deal.id %>"
-                  ><i class="fa-regular fa-star fa-beat-fade space-x-4"></i
+                  ><i
+                    class="fa-regular fa-star fa-beat space-x-4 hover:text-yellow-400 hover-rate"
+                  ></i
                 ></a>
                 <a href="/deals/rate/3/deal/<%= deal.id %>"
-                  ><i class="fa-regular fa-star fa-beat-fade space-x-4"></i
+                  ><i
+                    class="fa-regular fa-star fa-beat space-x-4 hover:text-yellow-400 hover-rate"
+                  ></i
                 ></a>
                 <a href="/deals/rate/4/deal/<%= deal.id %>"
-                  ><i class="fa-regular fa-star fa-beat-fade space-x-4"></i
+                  ><i
+                    class="fa-regular fa-star fa-beat space-x-4 hover:text-yellow-400 hover-rate"
+                  ></i
                 ></a>
                 <a href="/deals/rate/5/deal/<%= deal.id %>"
-                  ><i class="fa-regular fa-star fa-beat-fade space-x-4"></i
+                  ><i
+                    class="fa-regular fa-star fa-beat space-x-4 hover:text-yellow-400 hover-rate"
+                  ></i
                 ></a>
 
                 <!-- <i class="fa-solid fa-angle-up"></i> -->

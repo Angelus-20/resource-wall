@@ -38,7 +38,6 @@ router.get("/:id", (req, res) => {
 router.get("/like/:id", (req, res) => {
   const dealId = req.params.id;
   const userId = 1;
-  console.log("checking");
   dealsQueries
     .likeDeal(dealId, userId)
     .then((deals) => {
@@ -48,6 +47,7 @@ router.get("/like/:id", (req, res) => {
       res.status(500).json({ error: err.message });
     });
 });
+
 router.get("/rate/:rating/deal/:id", (req, res) => {
   const dealId = req.params.id;
   const rating = req.params.rating;
