@@ -13,16 +13,20 @@
     <script src="/scripts/icons.js"></script>
   </head>
 
-  <body class="bg-white font-semibold text-black font-sans">
+  <body class="bg-white font-semibold text-black font-sans max-w-6xl m-auto">
     <header class="p-5 flex justify-between items-center">
-      <div class="text-2xl"><h1>Deals</h1></div>
-      <h3 class="text-2xl">My Deals</h3>
-      <a href="/deals/newdeal">New Deal</a>
-      <h3 class="text-2xl">My Profile</h3>
+      <div class="text-2xl"><a href="/deals">Deals</a></div>
+      <a href="" class="rounded-full bg-blue-300 px-3 py-1 shadow-lg"
+        >My Deals</a
+      >
+      <div class="flex gap-10">
+        <a href="/deals/newdeal"><i class="fa-solid fa-plus text-2xl"></i></a>
+        <a href=""><i class="fa-solid fa-user text-2xl"></i></a>
+      </div>
     </header>
     <h3 class="text-2xl text-left p-5">All Deals:</h3>
 
-    <div class="deals-container flex items-center justify-center mt-32">
+    <div class="deals-container flex items-center justify-center mt-20">
       <div class="space-y-3 flex space-x-3 p-4 flex-wrap max-w-6xl">
         <% dealsData.forEach((deal) => { %>
         <article data-id="<%= deal.id %>">
