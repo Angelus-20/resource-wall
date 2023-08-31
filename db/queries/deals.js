@@ -1,10 +1,19 @@
 const db = require("../connection");
 
-const getDeals = () => {
-  return db.query("SELECT * FROM deals;").then((data) => {
+const getAllDeals = () => {
+  // using then to search for the data - any async operation creates a promise which uses then uses a .then to handle the response
+  const databaseData = db.query("SELECT * FROM deals;").then((data) => {
+    return data.rows;
+  });
+  return databaseData;
+};
+
+const getDealByDescription = (searchValue) => {
+  return db.query('SELECT * FROM deals WHERE description LIKE $1', [searchValue]).then((data) => {
     return data.rows;
   });
 };
+
 
 // const getDetailedDeals = () => {
 //   const query = `
@@ -16,7 +25,7 @@ const getDeals = () => {
 //   });
 // };
 
-// module.exports = { getDeals, getDetailedDeals };
+module.exports = { getAllDeals, getDealByDescription };
 
 // SELECT users.name, deals.title, deals.description, deals.date_added, deals.URL, COUNT(likes.) as likes, AVG(ratings.)
 // FROM deals

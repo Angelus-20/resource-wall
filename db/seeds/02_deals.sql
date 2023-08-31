@@ -23,3 +23,9 @@
 -- --     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 -- -- );
 -- -- select user_id where user.name = 'Alice'
+
+
+INSERT INTO deals (user_id, title, description, URL) VALUES (1, 'titleTest1', 'apple', 'exampleUrl1@example.com');
+INSERT INTO deals (user_id, title, description, URL) VALUES (2, 'titleTest2', 'apple', 'exampleUrl2@example.com');
+INSERT INTO deals (user_id, title, description, URL) VALUES (3, 'titleTest3', 'descriptionTest3', 'exampleUrl3@example.com');
+

@@ -8,3 +8,9 @@
 
 
 
+INSERT INTO users (name, email, password) VALUES ('exampleUser1', 'exampleEmail1@example.com', 'password1');
+INSERT INTO users (name, email, password) VALUES ('exampleUser2', 'exampleEmail2@example.com', 'password2');
+INSERT INTO users (name, email, password) VALUES ('exampleUser3', 'exampleEmail3@example.com', 'password3');
+
+
+

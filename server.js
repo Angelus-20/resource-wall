@@ -33,6 +33,7 @@ const widgetApiRoutes = require("./routes/widgets-api");
 const usersRoutes = require("./routes/users");
 const dealsRoute = require("./routes/deals");
 
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
@@ -55,9 +56,9 @@ app.get("/", (req, res) => {
 app.get("/users", (req, res) => {
   res.render("users");
 });
-app.get("/deals", (req, res) => {
-  res.render("deals");
-});
+// app.get("/deals", (req, res) => {
+//   res.render("deals");
+// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
