@@ -75,6 +75,27 @@ const getSavedDeals = (userId) => {
   });
 };
 
+const getCommentsForDeal = (dealId) => {
+  return db.query("SELECT * FROM comments WHERE deal_id = $1;", [dealId]).then(data => {
+    return data.rows;
+  });
+};
+
+
+// INSERT into comments (user_id, deal_id) VALUES (1, 2);
+const makeDealComment = (user_id = 1, deal_id , comment) => {
+  return db
+    .query("INSERT INTO comments (user_id, deal_id, message) values ($1, $2, $3);", [
+      user_id,
+      deal_id,
+      comment
+    ])
+    .then((data) => {
+      return data.rows;
+    });
+};
+
+
 module.exports = {
   getDeals,
   getAllDeals,
@@ -83,7 +104,9 @@ module.exports = {
   rateDeal,
   newDeal,
   insertDeal,
-  getSavedDeals
+  getSavedDeals,
+  makeDealComment,
+  getCommentsForDeal
 };
 
 // SELECT users.name, deals.title, deals.description,  deals.URL, COUNT(likes.*) as likes, AVG(postRatings.rating) as ratings

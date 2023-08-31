@@ -19,4 +19,18 @@ router.get("/", (req, res) => {
     });
 });
 
+
+router.post("/new", (req, res) => {
+  const { name, email, password } = req.body;
+ 
+  userQueries
+    .updateProfile(1,name, email, password)
+    .then(() => {
+      res.redirect("/profile");
+    })
+    .catch((error) => {
+      res.status(500).json({ error: error.message });
+    });
+});
+
 module.exports = router;
