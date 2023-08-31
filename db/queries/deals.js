@@ -17,6 +17,14 @@ const getAllDeals = () => {
 };
 
 
+const getDealByDescription = (searchValue) => {
+  return db.query('SELECT * FROM deals WHERE description LIKE $1',
+    ['%' + searchValue + '%']).then((data) => {
+    return data.rows;
+  });
+};
+
+
 const getSavedDeals = (userId) => {
   return db.query(
     "SELECT * FROM deals WHERE user_id = $1 OR id IN (SELECT deal_id FROM likes WHERE user_id = $1);",
@@ -90,7 +98,7 @@ const rateDeal = (deal_id, user_id = 1, rating) => {
 //     });
 // };
 
-module.exports = { getDeals, getAllDeals, getDeal, likeDeal, rateDeal, getCommentsForDeal, makeDealComment, getSavedDeals};
+module.exports = { getDeals, getAllDeals, getDeal, likeDeal, rateDeal, getCommentsForDeal, makeDealComment, getSavedDeals, getDealByDescription};
 
 // SELECT users.name, deals.title, deals.description,  deals.URL, COUNT(likes.*) as likes, AVG(postRatings.rating) as ratings
 // FROM deals

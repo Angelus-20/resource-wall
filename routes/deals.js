@@ -16,6 +16,9 @@ const dealsQueries = require("../db/queries/deals");
 //       res.status(500).json({ error: err.message });
 //     });
 // });
+
+
+//Get All Deals
 router.get("/", (req, res) => {
   dealsQueries
     .getAllDeals()
@@ -28,6 +31,33 @@ router.get("/", (req, res) => {
 });
 
 
+router.get("/searchRender", (req, res) => {
+  res.render("searchRender");
+  // dealsQueries
+  //   .getDealByDescription()
+  //   .then((searchDealsData) => {
+  //   })
+  //   .catch((err) => {
+  //     res.status(500).json({ error: err.message });
+  //   });
+});
+
+
+router.get("/search", (req, res) => {
+  console.log("in search route");
+  const searchValue = req.query.searchRenderVal;
+
+  dealsQueries
+    .getDealByDescription(searchValue)
+    .then((searchDealsData) => {
+      console.log(searchDealsData, "deals query response"); // .then handles the returned data
+      res.json(searchDealsData); // sending the data back to the front end
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ error: err.message });
+    });
+});
 
 
 router.get("/comments", (req, res) => {
