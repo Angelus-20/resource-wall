@@ -30,6 +30,30 @@ const getDeal = (id) => {
   });
 };
 
+
+const getCommentsForDeal = (dealId) => {
+  return db.query("SELECT * FROM comments WHERE deal_id = $1;", [dealId]).then(data => {
+    return data.rows;
+  });
+};
+
+
+// INSERT into comments (user_id, deal_id) VALUES (1, 2);
+const makeDealComment = (user_id = 1, deal_id , comment) => {
+  return db
+    .query("INSERT INTO comments (user_id, deal_id, message) values ($1, $2, $3);", [
+      user_id,
+      deal_id,
+      comment
+    ])
+    .then((data) => {
+      return data.rows;
+    });
+};
+
+
+
+
 // INSERT INTO likes (user_id, deal_id) VALUES (1,1);
 const likeDeal = (deal_id, user_id = 1) => {
   return db
@@ -83,25 +107,7 @@ const getSavedDeals = (userId) => {
   });
 };
 
-const getCommentsForDeal = (dealId) => {
-  return db.query("SELECT * FROM comments WHERE deal_id = $1;", [dealId]).then(data => {
-    return data.rows;
-  });
-};
 
-
-// INSERT into comments (user_id, deal_id) VALUES (1, 2);
-const makeDealComment = (user_id = 1, deal_id , comment) => {
-  return db
-    .query("INSERT INTO comments (user_id, deal_id, message) values ($1, $2, $3);", [
-      user_id,
-      deal_id,
-      comment
-    ])
-    .then((data) => {
-      return data.rows;
-    });
-};
 
 
 module.exports = {

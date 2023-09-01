@@ -86,17 +86,46 @@ router.post("/newdeal", (req, res) => {
 });
 
 
+
+
 router.get("/:id", (req, res) => {
   const dealId = req.params.id;
-  dealsQueries
-    .getDeal(dealId)
+  
+  // Fetch the deal
+  dealsQueries.getDeal(dealId)
     .then((deal) => {
-      res.render("deal", { deal });
+      
+      // Now fetch the comments for this deal
+      dealsQueries.getCommentsForDeal(dealId)
+        .then((comments) => {
+          
+          // Render the page with both deal and its comments
+          res.render("deal", { deal, comments });
+          
+        })
+        .catch((err) => {
+          res.status(500).json({ error: err.message });
+        });
+      
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
 });
+
+router.get("/:id", (req, res) => {
+  const dealId = req.params.id;
+  const userId = 1;
+  dealsQueries
+    .makeDealComment(userId, dealId)
+    .then((deals) => {
+      res.redirect("deal", { deal });
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
 
 // /like/32
 // to grab the 32 we use req.params.id
@@ -117,6 +146,22 @@ router.get("/like/:id", (req, res) => {
       res.status(500).json({ error: err.message });
     });
 });
+
+
+router.post("/comment/:id", (req, res) => {
+  const dealId = req.params.id;
+  const userId = 1;
+  const comment = req.body.comment;
+  dealsQueries
+    .makeDealComment(userId, dealId, comment)
+    .then((commentVal) => {
+      res.redirect("/deals/" + dealId);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
 
 router.get("/rate/:rating/deal/:id", (req, res) => {
   const dealId = req.params.id;

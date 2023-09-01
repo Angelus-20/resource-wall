@@ -44,6 +44,33 @@
               </li>
             </div>
           </ul>
+
+          
+          <!-- add comment -->
+          <div class="comment-wrapper">
+            <form
+              id="commentForm"
+              action="/deals/comment/<%= deal.id %>"
+              method="post"
+            >
+              <label for="text">Add Comment </label>
+              <input type="text" id="comment" name="comment" />
+              <button label="comment-buton" type="submit">Submit</button>
+            </form>
+          </div>
+
+          <!-- comments  -->
+          <h4 class="text-xl mt-4">Comments:</h4>
+          <ul>
+            <% comments.forEach(comment => { %>
+            <li>
+              <strong><%= comment.user_id %></strong>: <%= comment.message %>
+              <!-- Assuming each comment has a user_id and message field -->
+            </li>
+            <% }); %>
+          </ul>
+
+
         </article>
       </div>
     </div>
