@@ -15,7 +15,8 @@ CREATE TABLE deals (
     title VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
     URL VARCHAR(1000) NOT NULL,
-    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE
 );
 
 
@@ -44,4 +45,11 @@ CREATE TABLE postRatings (
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   deal_id INTEGER REFERENCES deals(id) ON DELETE CASCADE,
   rating int 
+);
+
+
+DROP TABLE IF EXISTS categories CASCADE;
+CREATE TABLE categories (
+    id SERIAL PRIMARY KEY NOT NULL,
+    name VARCHAR(255) UNIQUE NOT NULL
 );

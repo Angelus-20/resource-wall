@@ -9,7 +9,24 @@ const getDeals = () => {
 const getAllDeals = () => {
   return db
     .query(
-      "select deals.id, deals.title, deals.description, deals.URL, users.name, (select count (*) from likes where likes.deal_id = deals.id) as Total_Likes,(select AVG(postRatings.rating) from postRatings where postRatings.deal_id = deals.id) as Deal_Rating from deals join users on deals.user_id = users.id;"
+      // "select deals.id, deals.title, deals.description, deals.URL, users.name, categories.name (select count (*) from likes where likes.deal_id = deals.id) as Total_Likes,(select AVG(postRatings.rating) from postRatings where postRatings.deal_id = deals.id) as Deal_Rating from deals join users on deals.user_id = users.id join categories on deal.category_id = categories.id;"
+      `SELECT
+      deals.id,
+      deals.title,
+      deals.description,
+      deals.URL,
+      users.name,
+      categories.name AS category_name,
+      (SELECT COUNT(*) FROM likes WHERE likes.deal_id = deals.id) AS Total_Likes,
+      (SELECT AVG(postRatings.rating) FROM postRatings WHERE postRatings.deal_id = deals.id) AS Deal_Rating
+  FROM
+      deals
+  JOIN
+      users ON deals.user_id = users.id
+  JOIN
+      categories ON deals.category_id = categories.id
+      order by deals.id DESC
+      ;`
     )
     .then((data) => {
       return data.rows;
@@ -55,46 +72,58 @@ const newDeal = () => {
     });
 };
 
-const insertDeal = (user_id, title, description, url) => {
+// const insertDeal = (user_id, title, description, url) => {
+//   return db.query(
+//     `
+//     INSERT INTO deals (user_id, title, description, URL)
+//     VALUES ($1, $2, $3, $4)
+//     RETURNING *;
+//   `,
+//     [user_id, title, description, url]
+//   );
+// };
+
+const insertDeal = (user_id, title, description, url, categoryId) => {
   return db.query(
     `
-    INSERT INTO deals (user_id, title, description, URL) 
-    VALUES ($1, $2, $3, $4)
+    INSERT INTO deals (user_id, title, description, URL, category_id) 
+    VALUES ($1, $2, $3, $4, $5)
     RETURNING *;
   `,
-    [user_id, title, description, url]
+    [user_id, title, description, url, categoryId]
   );
 };
 
 const getSavedDeals = (userId) => {
-  return db.query(
-    "SELECT * FROM deals WHERE user_id = $1 OR id IN (SELECT deal_id FROM likes WHERE user_id = $1);",
-    [userId]
-  ).then((data) => {
-    return data.rows;
-  });
-};
-
-const getCommentsForDeal = (dealId) => {
-  return db.query("SELECT * FROM comments WHERE deal_id = $1;", [dealId]).then(data => {
-    return data.rows;
-  });
-};
-
-
-// INSERT into comments (user_id, deal_id) VALUES (1, 2);
-const makeDealComment = (user_id = 1, deal_id , comment) => {
   return db
-    .query("INSERT INTO comments (user_id, deal_id, message) values ($1, $2, $3);", [
-      user_id,
-      deal_id,
-      comment
-    ])
+    .query(
+      "SELECT * FROM deals WHERE user_id = $1 OR id IN (SELECT deal_id FROM likes WHERE user_id = $1);",
+      [userId]
+    )
     .then((data) => {
       return data.rows;
     });
 };
 
+const getCommentsForDeal = (dealId) => {
+  return db
+    .query("SELECT * FROM comments WHERE deal_id = $1;", [dealId])
+    .then((data) => {
+      return data.rows;
+    });
+};
+
+// INSERT into comments (user_id, deal_id) VALUES (1, 2);
+const makeDealComment = (user_id = 1, deal_id, comment) => {
+  return db
+    .query(
+      "INSERT INTO comments (user_id, deal_id, message) values ($1, $2, $3);",
+      [user_id, deal_id, comment]
+    )
+    .then((data) => {
+      return data.rows;
+    });
+};
 
 module.exports = {
   getDeals,
@@ -106,7 +135,7 @@ module.exports = {
   insertDeal,
   getSavedDeals,
   makeDealComment,
-  getCommentsForDeal
+  getCommentsForDeal,
 };
 
 // SELECT users.name, deals.title, deals.description,  deals.URL, COUNT(likes.*) as likes, AVG(postRatings.rating) as ratings
