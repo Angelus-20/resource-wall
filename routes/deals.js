@@ -73,18 +73,20 @@ router.get("/newdeal", (req, res) => {
   return res.render("newdeal");
 });
 router.post("/newdeal", (req, res) => {
-  const { Title, Description, URL } = req.body;
+  console.log(req.body);
+  const { Title, Description, URL, category } = req.body;
 
   dealsQueries
-    .insertDeal(1, Title, Description, URL)
+    .insertDeal(1, Title, Description, URL, category)
     .then(() => {
       res.redirect("/deals");
     })
     .catch((error) => {
       res.status(500).json({ error: error.message });
     });
-});
 
+
+});
 
 
 

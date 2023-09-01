@@ -4,11 +4,20 @@ INSERT INTO users (name, email, password) VALUES ('exampleUser2', 'exampleEmail2
 INSERT INTO users (name, email, password) VALUES ('exampleUser3', 'exampleEmail3@example.com', 'password3');
 
 
-INSERT INTO deals (user_id, title, description, URL) VALUES (1, 'titleTest1', 'apple', 'exampleUrl1@example.com');
-INSERT INTO deals (user_id, title, description, URL) VALUES (1, 'titleTest1', 'descriptionTest1', 'exampleUrl1@example.com');
-INSERT INTO deals (user_id, title, description, URL) VALUES (2, 'titleTest2', 'descriptionTest2', 'exampleUrl2@example.com');
-INSERT INTO deals (user_id, title, description, URL) VALUES (3, 'titleTest3', 'descriptionTest3', 'exampleUrl3@example.com');
+INSERT INTO categories (name) VALUES 
+('Electronics'),
+('Fashion'),
+('Home & Garden'),
+('Books'),
+('Food & Beverage'),
+('Travel'),
+('Entertainment');
 
+
+
+INSERT INTO deals (user_id, title, description, URL, category_id) VALUES (1, 'titleTest1', 'descriptionTest1', 'exampleUrl1@example.com', 1);
+INSERT INTO deals (user_id, title, description, URL, category_id) VALUES (2, 'titleTest2', 'descriptionTest2', 'exampleUrl2@example.com', 2);
+INSERT INTO deals (user_id, title, description, URL, category_id) VALUES (3, 'titleTest3', 'descriptionTest3', 'exampleUrl3@example.com', 3);
 
 INSERT INTO postRatings (user_id, deal_id, rating) VALUES (1,1,3);  
 INSERT INTO postRatings (user_id, deal_id, rating) VALUES (2,2,3);
