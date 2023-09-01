@@ -6,25 +6,24 @@ const userQueries = require("../db/queries/profile");
 //   // res.render("/profile");
 //   res.send("ok");
 // });
-
 router.get("/", (req, res) => {
   userQueries
     .getUsers()
     .then((users) => {
-      console.log(users[0]);
-      res.render("profile", { users });
+      console.log(users);
+      const selectedUser = users.find((user)=> user.id === 1);
+      res.render("profile", { user: selectedUser });
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
 });
 
-
 router.post("/new", (req, res) => {
   const { name, email, password } = req.body;
  
   userQueries
-    .updateProfile(1,name, email, password)
+    .updateProfile(name, email, password)
     .then(() => {
       res.redirect("/profile");
     })

@@ -27,6 +27,48 @@ router.get("/saved", (req, res) => {
 });
 
 
+
+router.get("/searchRender", (req, res) => {
+  // res.render("searchRender");
+  // dealsQueries
+  //   .getDealByDescription()
+  //   .then((searchDealsData) => {
+  //   })
+  //   .catch((err) => {
+  //     res.status(500).json({ error: err.message });
+  //   });
+
+  const searchString = req.query.searchTerm;
+  dealsQueries
+    .getDealByDescription(searchString)
+    .then((dealsData) => {
+      console.log(dealsData);
+      res.render("searchRender", { dealsData });
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
+
+router.get("/search", (req, res) => {
+  console.log("in search route");
+  const searchValue = req.query.searchRenderVal;
+
+  dealsQueries
+    .getDealByDescription(searchValue)
+    .then((searchDealsData) => {
+      console.log(searchDealsData, "deals query response"); // .then handles the returned data
+      res.json(searchDealsData); // sending the data back to the front end
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ error: err.message });
+    });
+});
+
+
+
 router.get("/newdeal", (req, res) => {
   return res.render("newdeal");
 });
@@ -55,6 +97,13 @@ router.get("/:id", (req, res) => {
       res.status(500).json({ error: err.message });
     });
 });
+
+// /like/32
+// to grab the 32 we use req.params.id
+//  http://localhost:8080/deals/searchRender?searchTerm=description&foobar=true
+// to grab the searchTerm we use req.query.searchTerm
+// to grab the true it would be req.query.foobar
+// the question mark, marks the beginning of the query object.
 
 router.get("/like/:id", (req, res) => {
   const dealId = req.params.id;
