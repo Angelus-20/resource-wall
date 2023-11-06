@@ -13,105 +13,112 @@
     <script src="/scripts/icons.js"></script>
   </head>
 
-  <body class="bg-white font-semibold text-black font-sans max-w-6xl m-auto">
+  <body
+    class="bg-gradient-to-b from-cyan-800 to-sky-900 text-black container m-auto h-screen"
+    style="font-family: 'IBM Plex Sans', sans-serif"
+  >
     <header class="p-5 flex justify-between items-center">
-      <div class="text-2xl"><a href="/deals">Deals</a></div>
-      <a href="/deals/saved" class="rounded-full bg-blue-300 px-3 py-1 shadow-lg"
+      <div class="text-4xl">
+        <a
+          href="/deals"
+          class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-orange-400 to-orange-600"
+          >VEND</a
+        >
+        <p class="text-white text-2xl">Buy & Sell</p>
+      </div>
+      <a
+        href="/deals/saved"
+        class="rounded-full bg-orange-600 px-5 py-1 shadow-lg text-white outline transform hover:scale-105 duration-500 ease-in-out"
         >My Deals</a
       >
       <div class="flex gap-10">
-        <a href="/deals/newdeal"><i class="fa-solid fa-plus text-2xl"></i></a>
-        <a href="/profile"><i class="fa-solid fa-user text-2xl"></i></a>
+        <a href="/deals/newdeal"
+          ><i class="fa-solid fa-plus text-2xl text-white"></i
+        ></a>
+        <a href="/profile"
+          ><i class="fa-solid fa-user text-2xl text-white"></i
+        ></a>
       </div>
     </header>
 
     <!-- test -->
-  
 
-    <% if (user) { %>
-      <%=  %>
-      <div class="text-red-300 flex justify-center items-center text-3xl"></div>
-      <div class="flex justify-center flex-col-reverse items-center space-x-6 mx-auto">
-        <div class="p-5 shadow-md space-y-2">
-          <h3 class="text-center">User Info:</h3>
-          <li class=""><%= user.name %></li>
-          <li class=" "><%= user.email %></li>
-          <li><%= user.password %></li>
-  
-        </div>
-       
-  
-        <div class="flex justify-center items-center mt-20">
-          <div class="w-full max-w-xs">
-            <h2 class="text-center mb-5 text-2xl">Update Info</h2>
-            <form
-              id="dealForm"
-              action="/profile/new"
-              method="POST"
-              class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-            >
-              <div class="mb-4">
-                <label
-                  class="block text-gray-700 text-sm font-bold mb-2"
-              
-                >
-                  Username
-                </label>
-                <input
-                  name="name"
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="username"
-                  type="text"
-                  placeholder="Enter new username"
-                />
-              </div>
-              <div class="mb-6">
-                <label class="block text-gray-700 text-sm font-bold mb-2">
-                  Email
-                </label>
-                <input
-                  name="email"
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                  id="Description"
-                  type="email"
-                  placeholder="Enter new email"
-                />
-              </div>
-              <div class="mb-6">
-                <label class="block text-gray-700 text-sm font-bold mb-2">
-                 Password
-                </label>
-                <input
-                  name="password"
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                  id="password"
-                  type="password"
-                  placeholder="Enter New Password"
-                />
-              </div>
-              <div class="flex items-center justify-between">
-                <button
-                  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                  type="submit"
-                >
-                  Submit
-                </button>
-                <button
-                  class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-                  type="reset"
-                >
-                  Clear
-                </button>
-              </div>
-            </form>
-          </div>
+    <% if (user) { %> <%= %>
+    <div class="text-red-300 flex justify-center items-center text-3xl"></div>
+    <div
+      class="flex justify-center flex-col-reverse items-center space-x-6 mx-auto"
+    >
+      <div class="p-5 shadow-md space-y-2 bg-white text-black rounded-md">
+        <h3 class="text-center">User Info:</h3>
+        <li class=""><%= user.name %></li>
+        <li class=" "><%= user.email %></li>
+        <li><%= user.password %></li>
+      </div>
+
+      <div class="flex justify-center items-center mt-20">
+        <div class="w-full max-w-xs">
+          <h2 class="text-center mb-5 text-2xl">Update Info</h2>
+          <form
+            id="dealForm"
+            action="/profile/new"
+            method="POST"
+            class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          >
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2">
+                Username
+              </label>
+              <input
+                name="name"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="username"
+                type="text"
+                placeholder="Enter new username"
+              />
+            </div>
+            <div class="mb-6">
+              <label class="block text-gray-700 text-sm font-bold mb-2">
+                Email
+              </label>
+              <input
+                name="email"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                id="Description"
+                type="email"
+                placeholder="Enter new email"
+              />
+            </div>
+            <div class="mb-6">
+              <label class="block text-gray-700 text-sm font-bold mb-2">
+                Password
+              </label>
+              <input
+                name="password"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                id="password"
+                type="password"
+                placeholder="Enter New Password"
+              />
+            </div>
+            <div class="flex items-center justify-between">
+              <button
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="submit"
+              >
+                Submit
+              </button>
+              <button
+                class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+                type="reset"
+              >
+                Clear
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-      
-    <% } %>
-    
+    </div>
 
-    
- 
+    <% } %>
   </body>
 </html>

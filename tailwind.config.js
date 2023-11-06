@@ -3,7 +3,11 @@ module.exports = {
   content: ["./views/deals.ejs"],
 
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        arvo: "'Arvo'",
+      },
+    },
   },
   plugins: [],
 };

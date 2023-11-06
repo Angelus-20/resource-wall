@@ -72,17 +72,6 @@ const newDeal = () => {
     });
 };
 
-// const insertDeal = (user_id, title, description, url) => {
-//   return db.query(
-//     `
-//     INSERT INTO deals (user_id, title, description, URL)
-//     VALUES ($1, $2, $3, $4)
-//     RETURNING *;
-//   `,
-//     [user_id, title, description, url]
-//   );
-// };
-
 const insertDeal = (user_id, title, description, url, categoryId) => {
   return db.query(
     `

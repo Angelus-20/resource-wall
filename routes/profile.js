@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
     .getUsers()
     .then((users) => {
       console.log(users);
-      const selectedUser = users.find((user)=> user.id === 1);
+      const selectedUser = users.find((user) => user.id === 1);
       res.render("profile", { user: selectedUser });
     })
     .catch((err) => {
@@ -20,10 +20,9 @@ router.get("/", (req, res) => {
     });
 });
 
-
 router.post("/new", (req, res) => {
   const { name, email, password } = req.body;
- 
+
   userQueries
     .updateProfile(name, email, password)
     .then(() => {

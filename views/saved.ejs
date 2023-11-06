@@ -13,15 +13,31 @@
     <script src="/scripts/icons.js"></script>
   </head>
 
-  <body class="bg-white font-semibold text-black font-sans max-w-6xl m-auto">
+  <body
+    class="bg-gradient-to-b from-cyan-800 to-sky-900 text-black container m-auto h-screen"
+    style="font-family: 'IBM Plex Sans', sans-serif"
+  >
     <header class="p-5 flex justify-between items-center">
-      <div class="text-2xl"><a href="/deals">Deals</a></div>
-      <a href="" class="rounded-full bg-blue-300 px-3 py-1 shadow-lg"
+      <div class="text-4xl">
+        <a
+          href="/deals"
+          class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-orange-400 to-orange-600"
+          >VEND</a
+        >
+        <p class="text-white text-2xl">Buy & Sell</p>
+      </div>
+      <a
+        href="/deals/saved"
+        class="rounded-full bg-orange-600 px-5 py-1 shadow-lg text-white outline transform hover:scale-105 duration-500 ease-in-out"
         >My Deals</a
       >
       <div class="flex gap-10">
-        <a href="/deals/newdeal"><i class="fa-solid fa-plus text-2xl"></i></a>
-        <a href="/profile"><i class="fa-solid fa-user text-2xl"></i></a>
+        <a href="/deals/newdeal"
+          ><i class="fa-solid fa-plus text-2xl text-white"></i
+        ></a>
+        <a href="/profile"
+          ><i class="fa-solid fa-user text-2xl text-white"></i
+        ></a>
       </div>
     </header>
     <h3 class="text-2xl text-left p-5">Saved Deals:</h3>
@@ -30,7 +46,7 @@
         <% savedData.forEach((deal) => { %>
         <article data-id="<%= deal.id %>">
           <ul
-            class="flex justify-center flex-col items-center space-x-2 border-2 p-6 shadow-lg rounded-lg"
+            class="flex justify-center flex-col items-center space-x-2 border-2 p-6 shadow-lg rounded-lg bg-white"
           >
             <li class="">
               <a href="/deals/<%= deal.id %>"> <%= deal.title %></a>
